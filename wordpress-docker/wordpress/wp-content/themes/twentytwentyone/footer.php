@@ -77,7 +77,9 @@ section .section-title {
     margin-bottom: 10px;
 }
 }
-
+#menu-footermenu-2 {
+	display: inline-block;
+}
 </style>
 <?php
 // functions.php
@@ -112,22 +114,30 @@ if ($menu_id) {
 				
 	<div class="col-xs-12 col-sm-4 col-md-4 " style='orientation: horizontal;display: flex;justify-content: center;align-items: center;'>
 
-    <?php
+</div>
+
+
+			</div>
+			<div class="row">
+				<div class="row text-center text-xs-center text-sm-left text-md-left">
+				<div class=" col-xl-6">
+					<h5>Quick links</h5>
+					<ul class="list-unstyled quick-links">
+						<?php
     wp_nav_menu([
         'theme_location'  => 'footer',
         'container'       => false,
-        'menu_class'      => 'list-unstyled quick-links footer-quick-links',
+        'menu_class'      => 'nav footer-quick-links',
         'fallback_cb'     => false,
         'depth'           => 1,
         'link_before'     => '<i class="fa fa-angle-double-right"></i> ',
         'link_after'      => '',
     ]);
     ?>
-</div>
-
-
+					</ul>
+				</div>
+				
 			</div>
-			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
 					<ul class="list-unstyled list-inline social text-center">
 						<li class="list-inline-item"><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-facebook"></i></a></li>
