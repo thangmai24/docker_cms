@@ -8,7 +8,7 @@
  * @subpackage Twenty_Twenty_One
  * @since Twenty Twenty-One 1.0
  */
-
+var_dump( 123 );
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
