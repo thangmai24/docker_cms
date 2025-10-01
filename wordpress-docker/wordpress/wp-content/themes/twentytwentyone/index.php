@@ -47,75 +47,91 @@
 .post-details {
     flex: 1;
 	padding: 15px;
+    padding-left:0px;
 }
 
 .post-header {
     display: flex;
-    align-items: baseline;
+    align-items: center;
     gap: 20px;
     margin-bottom: 15px;
 }
 
 .post-date-display {
-    flex: 0 0 auto;
+    display: flex;
+    align-items: center;       /* canh giữa theo chiều dọc */
+    border: 1px solid #e0e0e0; /* viền mảnh */
+    padding: 10px 15px;
+    border-top: none;
+border-left: none;
+    font-family: 'Arial', sans-serif;
+    width: fit-content;        /* ô gọn theo nội dung */
 }
 
-.post-day {
-    font-size: 48px;
+.post-date-display .post-day {
+    font-size: 48px;        /* số ngày to */
     font-weight: bold;
-    color: #0073aa;
+    color: #0d47a1;
     line-height: 1;
-    margin: 0;
+    margin-right: 10px;     /* khoảng cách sang cột tháng-năm */
 }
 
-.post-month-year {
-    font-size: 14px;
-    color: #0073aa;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin: 0;
+.post-date-display .post-month-year {
+    display: flex;
+    flex-direction: column; /* xếp tháng và năm dọc */
+    text-align: left;
 }
+
+.post-date-display .post-month {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #777;            /* màu xám */
+    line-height: 1.2;
+}
+
+.post-date-display .post-year {
+    font-size: 18px;
+    color: #1976d2;         /* màu xanh nổi bật */
+    line-height: 1.2;
+    font-weight: 500;
+}
+
 
 .post-title {
-    font-size: 24px;
-    font-weight: 600;
-    margin: 0;
-    flex: 1;
+    margin: 0 0 5px 0;       /* khoảng cách với categories */
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 1.3;
 }
 
 .post-title a {
-    color: #2c3e50;
+    color: black;
     text-decoration: none;
-    transition: color 0.3s ease;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;   /* tối đa 2 dòng */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .post-title a:hover {
-    color: #0073aa;
+    text-decoration: underline;
 }
 
 .post-categories {
-    margin-bottom: 12px;
+    font-size: 12px;
+    color: #6c757d;
 }
 
 .post-categories a {
-    display: inline-block;
-    background: #f8f9fa;
-    color: #6c757d;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 12px;
+    color: #0d47a1;
     text-decoration: none;
-    margin-right: 8px;
-    margin-bottom: 4px;
-    border: 1px solid #e9ecef;
-    transition: all 0.3s ease;
+    margin-right: 5px;
+    font-size: 13px;
 }
 
 .post-categories a:hover {
-    background: #0073aa;
-    color: white;
-    border-color: #0073aa;
+    text-decoration: underline;
 }
 
 .post-excerpt {
@@ -212,26 +228,37 @@
                             <div class="post-date-display">
                                 <div class="post-day"><?php echo get_the_date('d'); ?></div>
                                 <div class="post-month-year">
-                                    THÁNG <?php echo get_the_date('n'); ?> <?php echo get_the_date('Y'); ?>
+                                    <div class="post-month">
+                                    THÁNG <?php echo get_the_date('n'); ?> 
                                 </div>
+                                 <div class="post-year">
+                                    <?php echo get_the_date('Y'); ?>
+                                </div>
+                                </div>
+                               
                             </div>
-                            
+                            <div class="post-title-categories" style="">
                             <h2 class="post-title">
                                 <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                             </h2>
-                        </div>
-                        
-                        <div class="post-categories">
+
+                                <div class="post-categories">
                             <?php
                             $categories = get_the_category();
                             if (!empty($categories)) {
-                                echo '<span style="color: #6c757d; font-size: 12px; margin-right: 8px;">Categories:</span>';
+                                echo '<span style="color: blue; font-size: 12px; margin-right: 8px;">Categories:</span>';
                                 foreach ($categories as $category) {
-                                    echo '<a href="' . esc_url(get_category_link($category->term_id)) . '">' . esc_html($category->name) . '</a>';
+                                    echo '<a style="color: #6c757d;" href="' . esc_url(get_category_link($category->term_id)) . '">' . esc_html($category->name) . '</a>';
                                 }
                             }
                             ?>
                         </div>
+                            </div>
+                            
+                            
+                        </div>
+                        
+                    
                         
                         <div class="post-excerpt">
                             <?php 

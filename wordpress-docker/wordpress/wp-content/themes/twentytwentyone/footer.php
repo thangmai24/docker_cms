@@ -107,6 +107,7 @@
     .wp-block-page-list li.current-menu-item a {
         font-weight: bold;
         color: #ffffff;
+        
     }
     .wp-block-page-list li a:hover {
         color: #eeeeee;
@@ -168,6 +169,14 @@
             font-size: 14px;
         }
     }
+
+   .wp-block-pages-list__item:hover {
+    transform: translateX(20px);
+}
+.cat-item:hover{
+ transform: translateX(20px);
+}
+
 </style>
 
 <!-- Footer -->
@@ -175,19 +184,19 @@
     <div class="container">
         <div class="row" style="margin-top: 20px;">
             <div class="col-md-4">
-                <h5>| Quick links</h5> <!-- Thêm | để giống hình ảnh -->
+                <h5> Quick links</h5> <!-- Thêm | để giống hình ảnh -->
                 <?php if (is_active_sidebar('footer-widget-1')) : ?>
                     <?php dynamic_sidebar('footer-widget-1'); ?>
                 <?php endif; ?>
             </div>
             <div class="col-md-4">
-                <h5>| Quick links</h5>
+                <h5> Quick links</h5>
                 <?php if (is_active_sidebar('footer-widget-3')) : ?> <!-- Sửa: footer-widget-2 thay vì 3 -->
                     <?php dynamic_sidebar('footer-widget-3'); ?>
                 <?php endif; ?>
             </div>
             <div class="col-md-4">
-                <h5>| Quick links</h5>
+                <h5> Quick links</h5>
                 <?php if (is_active_sidebar('footer-widget-3')) : ?>
                     <?php dynamic_sidebar('footer-widget-3'); ?>
                 <?php endif; ?>
