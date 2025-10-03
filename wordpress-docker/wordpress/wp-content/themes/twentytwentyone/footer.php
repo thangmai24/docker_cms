@@ -48,15 +48,7 @@
         display: inline-block;
         margin: 0 10px;
     }
-    #footer .social li a i {
-        font-size: 25px;
-        color: white !important; /* Đảm bảo màu trắng cho tất cả icon social */
-        transition: all 0.5s ease;
-    }
-    #footer .social li a i:hover {
-        font-size: 30px;
-        color: #eeeeee !important;
-    }
+    
     #footer .footer-bottom {
         text-align: center;
         padding-top: 10px;
@@ -172,10 +164,26 @@
 
    .wp-block-pages-list__item:hover {
     transform: translateX(20px);
+    font-weight: bold;
+        transition: 5s;
 }
+
 .cat-item:hover{
  transform: translateX(20px);
 }
+#footer .social i {
+    color: white;           /* màu mặc định */
+    font-size: 20px;        /* size mặc định */
+    transition: all 0.3s ease; /* hiệu ứng chỉ áp dụng cho từng icon */
+}
+
+#footer .social i:hover {
+    color: #eeeeee !important; 
+    font-size: 30px;
+    transform: scale(1.2);   /* phóng to mượt */
+}
+
+
 
 </style>
 
@@ -184,28 +192,28 @@
     <div class="container">
         <div class="row" style="margin-top: 20px;">
             <div class="col-md-4">
-                <h5> Quick links</h5> <!-- Thêm | để giống hình ảnh -->
+                <h5 style="margin-left:10px;"> Quick links</h5> <!-- Thêm | để giống hình ảnh -->
                 <?php if (is_active_sidebar('footer-widget-1')) : ?>
                     <?php dynamic_sidebar('footer-widget-1'); ?>
                 <?php endif; ?>
             </div>
             <div class="col-md-4">
-                <h5> Quick links</h5>
+                <h5 style="margin-left:10px;"> Quick links</h5>
                 <?php if (is_active_sidebar('footer-widget-3')) : ?> <!-- Sửa: footer-widget-2 thay vì 3 -->
                     <?php dynamic_sidebar('footer-widget-3'); ?>
                 <?php endif; ?>
             </div>
             <div class="col-md-4">
-                <h5> Quick links</h5>
+                <h5 style="margin-left:10px;"> Quick links</h5>
                 <?php if (is_active_sidebar('footer-widget-3')) : ?>
                     <?php dynamic_sidebar('footer-widget-3'); ?>
                 <?php endif; ?>
             </div>
         </div>
         <div class="row">
-            <div class="col-12 social">
-                <ul class="list-unstyled list-inline">
-                    <li class="list-inline-item"><a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
+            <div class="col-12 social" >
+                <ul class="list-unstyled list-inline" style="height:20px;">
+                    <li class="list-inline-item"><a  href="https://www.facebook.com"><i style='color:white;' class="fa fa-facebook"></i></a></li>
                     <li class="list-inline-item"><a href="https://www.twitter.com"><i class="fa fa-twitter"></i></a></li>
                     <li class="list-inline-item"><a href="https://www.instagram.com"><i class="fa fa-instagram"></i></a></li>
                     <li class="list-inline-item"><a href="https://plus.google.com"><i class="fa fa-google-plus"></i></a></li>
