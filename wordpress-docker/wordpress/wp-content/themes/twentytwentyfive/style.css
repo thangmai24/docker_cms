@@ -48,7 +48,16 @@ a {
  * Progressive enhancement to reduce widows and orphans
  * https://github.com/WordPress/gutenberg/issues/55190
  */
-h1, h2, h3, h4, h5, h6, blockquote, caption, figcaption, p {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+blockquote,
+caption,
+figcaption,
+p {
 	text-wrap: pretty;
 }
 
@@ -60,45 +69,189 @@ h1, h2, h3, h4, h5, h6, blockquote, caption, figcaption, p {
 	display: block;
 }
 
-.card-date{
+.card-date {
 	border: 2px solid rgb(82, 78, 78);
 	border-top: none;
-border-left: none ;
-}
-.wp-block-post-date{
-	color:blue;
-}
-.card-blog {
-  border: 1px solid #e0e0e0;   /* viền mỏng xám nhạt */
-  border-radius: 8px;          /* bo góc mềm mại */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* đổ bóng nhẹ */
-  padding: 16px;               /* thêm khoảng cách bên trong */
-  background: #fff;            /* nền trắng để nổi hơn */
-  transition: all 0.3s ease;   /* hiệu ứng hover mượt */
+	border-left: none;
 }
 
-.day{
-font-weight: 600 ;
-color:blue;
+.wp-block-post-date {
+	color: blue;
 }
-.month{
-font-weight: 400 ;
-color:rgb(103, 103, 120);
+
+.card-blog {
+	border: 1px solid #e0e0e0;
+	/* viền mỏng xám nhạt */
+	border-radius: 8px;
+	/* bo góc mềm mại */
+	box-shadow: 0 4px 12px rgba(46, 46, 46, 0.1);
+	/* đổ bóng nhẹ */
+	padding: 16px;
+	/* thêm khoảng cách bên trong */
+	background: #fff;
+	/* nền trắng để nổi hơn */
+	transition: all 0.3s ease;
+	/* hiệu ứng hover mượt */
 }
-.wp-date{
+
+.day {
+	font-weight: 600;
+	color: blue;
+}
+
+.month {
+	font-weight: 400;
+	color: rgb(103, 103, 120);
+}
+
+.wp-date {
 	border: 1px solid rgb(112, 86, 86);
 	border-top: none;
-	border-left: none ;
-	padding-top: 25px;
-	padding-bottom: 25px;
+	border-left: none;
+	margin-top: 10px !important;
+	padding-bottom: 35px !important;
 }
-.titile{
-	font-weight: 600 ;
-	color:rgb(56, 56, 56);
+
+.titile {
+	padding-top: 15px;
+	font-weight: 600;
+	color: rgb(147, 25, 25);
+	font-size: 30px;
 }
-.main-blog{
+
+.main-blog {
 	padding-left: 15px;
 }
-.img-blog{
-	
+
+header {
+	background-color: #f8f8f8 !important;
+}
+
+.wp-block-search__input {
+	border-radius: 10px;
+
+}
+
+.wp-block-search__inside-wrapper {
+	height: 35px;
+}
+
+/* Thay "Search results for:" thành "Search:" */
+.wp-block-search-results-title::before {
+	content: "Search: ";
+}
+
+.wp-block-search-results-title {
+	visibility: hidden;
+}
+
+.wp-block-search-results-title::before {
+	visibility: visible;
+	display: inline;
+}
+
+.wp-block-query-no-results p {
+	width: 54%;
+	text-align: center;
+}
+
+.wp-block-query-no-results {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+}
+
+.wp-block-search__button {
+	background: white !important;
+}
+
+.alignwide {
+	margin: 0 12px !important;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.nav-home {
+	background-color: #e7e7e7;
+}
+
+.no-result {
+	padding-top: 0px !important;
+}
+
+.search-heading {
+	width: fit-content;
+	margin: 0 !important;
+	font-weight: 800;
+}
+
+.search-result-header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.alignfull {
+	margin-top: 0 !important;
+}
+
+.search-resultm .wp-block-search__inside-wrapper {
+	width: 70% !important;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex: none !important;
+}
+
+.search-resultm {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 26px 0px;
+	background-color: #f5efe0 !important;
+}
+
+.search-resultm .wp-block-search__inside-wrapper .wp-block-search__button {
+	background: #28a745 !important;
+	border-radius: 0px !important;
+	position: absolute;
+	right: 19%;
+	padding: 16px  !important;
+}
+
+.search-resultm .wp-block-search__inside-wrapper .wp-block-search__input {
+	border-radius: 0px !important;
+	height: 54px;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23999' viewBox='0 0 24 24'%3E%3Cpath d='M10,2A8,8,0,1,0,18,10a8,8,0,0,0-8-8Zm0,14a6,6,0,1,1,6-6A6,6,0,0,1,10,16Zm9.707,3.293-4.387-4.387a8.008,8.008,0,0,0,1.414-1.414l4.387,4.387a1,1,0,1,1-1.414,1.414Z'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-size: 18px;
+	background-position: 5px center;
+	;
+}
+
+
+
+
+.nav-home li {
+	height: 130px;
+	text-align: center;
+	width: 80px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.alignwide {
+	padding: 0 !important;
+}
+
+.nav-search .wp-block-navigation-item .wp-block-navigation-item__content .wp-block-navigation-item__label {
+	font-size: 13px !important;
+
+}
+
+.has-large-font-size {
+	font-weight: 800;
 }

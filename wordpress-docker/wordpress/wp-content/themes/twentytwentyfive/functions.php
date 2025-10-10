@@ -9,6 +9,49 @@
  * @since Twenty Twenty-Five 1.0
  */
 
+add_shortcode('search_title', function() {
+    if (is_search()) {
+        $query = get_search_query();
+
+        // Kiểm tra nếu không có kết quả
+        if (!have_posts()) {
+            return '
+                <div class="search-result-header">
+                    <h4 class="search-heading" > <span style="color:hsl(343.48deg 76.72% 45.49%);">Search: </span>  “ ' . esc_html($query) . '”</h4>
+                </div>
+            ';
+        } else {
+            // Có kết quả
+            return '<h2 class="search-heading"> <span style="color:hsl(343.48deg 76.72% 45.49%);">Search: </span>  “' . esc_html($query) . '”</h2>';
+        }
+    }
+    return '';
+});
+
+add_action('wp_enqueue_scripts', function () {
+  wp_enqueue_style('dashicons');
+});
+
+
+// Đăng ký menu
+function my_theme_setup() {
+  register_nav_menus([
+    'primary' => __( 'Main Menu', 'mytheme' ),
+	 'secondary' => __('Footer Menu', 'mytheme'),
+  ]);
+}
+add_action('after_setup_theme', 'my_theme_setup');
+
+// Đăng ký widget
+function my_theme_widgets_init() {
+  register_sidebar([
+    'name' => 'Sidebar',
+    'id' => 'sidebar-1',
+    'before_widget' => '<div class="widget">',
+    'after_widget' => '</div>',
+  ]);
+}
+add_action('widgets_init', 'my_theme_widgets_init');
 // Adds theme support for post formats.
 if ( ! function_exists( 'twentytwentyfive_post_format_setup' ) ) :
 	/**
@@ -53,7 +96,7 @@ if ( ! function_exists( 'twentytwentyfive_enqueue_styles' ) ) :
 			'twentytwentyfive-style',
 			get_parent_theme_file_uri( 'style.css' ),
 			array(),
-			wp_get_theme()->get( 'Version' )
+			time()
 		);
 	}
 endif;
