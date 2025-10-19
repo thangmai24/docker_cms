@@ -9,6 +9,21 @@
  * @since Twenty Twenty-Five 1.0
  */
 
+function twenty_twenty_five_widgets_init() {
+
+	 register_sidebar(array(
+        'name'          => __('Footer Column 25 1', 'theme_text_domain'),
+        'id'            => 'footer-widget-25-1',
+        'description'   => __('Widget area for the first footer column', 'theme_text_domain'),
+        'before_widget' => '<div class="footer-widget">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h5>| Quick links</h5>',
+        'after_title'   => '',
+    ));
+ 
+}
+add_action( 'widgets_init', 'twenty_twenty_five_widgets_init' );
+
 add_shortcode('search_title', function() {
     if (is_search()) {
         $query = get_search_query();
@@ -22,7 +37,9 @@ add_shortcode('search_title', function() {
             ';
         } else {
             // Có kết quả
-            return '<h2 class="search-heading"> <span style="color:hsl(343.48deg 76.72% 45.49%);">Search: </span>  “' . esc_html($query) . '”</h2>';
+            return '<div class="search-result-header">
+                    <h4 class="search-heading" > <span style="color:hsl(343.48deg 76.72% 45.49%);">Search: </span>  “ ' . esc_html($query) . '”</h4>
+                </div>';
         }
     }
     return '';
@@ -101,6 +118,11 @@ if ( ! function_exists( 'twentytwentyfive_enqueue_styles' ) ) :
 	}
 endif;
 add_action( 'wp_enqueue_scripts', 'twentytwentyfive_enqueue_styles' );
+
+function enqueue_font_awesome() {
+    wp_enqueue_style( 'font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css', array(), '6.5.1' );
+}
+add_action( 'wp_enqueue_scripts', 'enqueue_font_awesome' );
 
 // Registers custom block styles.
 if ( ! function_exists( 'twentytwentyfive_block_styles' ) ) :
