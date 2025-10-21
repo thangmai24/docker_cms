@@ -554,7 +554,7 @@ textarea#comment:not(:focus)::before {
 
 .categories {
 	background-color: #f7f7f7;
-    padding-bottom: 30px;
+	padding-bottom: 30px;
 }
 
 .categories .wp-block-categories-list {
@@ -615,4 +615,115 @@ textarea#comment:not(:focus)::before {
 
 .all_latest_post a {
 	text-decoration: none;
+}
+
+
+.post_new .wp-block-latest-posts__list {
+	counter-reset: post-counter;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	/* 2 cột */
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	position: relative;
+}
+
+/* 🔹 Đường kẻ dọc ở giữa */
+.post_new .wp-block-latest-posts__list::before {
+	content: "";
+	position: absolute;
+	top: 5%;
+	bottom: 0;
+	left: 50%;
+	width: 1.5px;
+	height: 90%;
+	background: #e6e6e6;
+}
+
+/* 🔹 Mỗi ô */
+.post_new .wp-block-latest-posts__list li {
+	counter-increment: post-counter;
+	display: flex;
+	align-items: flex-start;
+	gap: 1rem;
+	padding: 0.75rem 1rem;
+	border-bottom: 1.5px solid #e6e6e6;
+}
+
+/* 🔹 Số thứ tự */
+.post_new .wp-block-latest-posts__list li::before {
+	content: counter(post-counter);
+	font-size: 2.5rem;
+	font-weight: bold;
+	color: #000;
+	line-height: 1;
+	width: fit-content;
+}
+
+/* 🔹 Tiêu đề */
+.post_new .wp-block-latest-posts__post-title {
+	text-decoration: none;
+	font-size: 1rem;
+	color: #111;
+	font-weight: 500;
+}
+
+.post_new .wp-block-latest-posts__post-title:hover {
+	color: #0073aa;
+	text-decoration: underline;
+}
+
+/* 🔹 Bỏ border dưới cho hàng cuối */
+.post_new .wp-block-latest-posts__list li:nth-last-child(-n+2) {
+	border-bottom: none;
+}
+
+.title_postnew {
+	font-weight: 800;
+	border-bottom: 2px solid #cfb2b8;
+	margin: 0 0 0 10% !important;
+	padding-bottom: 10px;
+	width: fit-content;
+}
+
+.comment .wp-block-latest-comments .wp-block-latest-comments__comment article footer {
+	display: none;
+}
+
+.comment .wp-block-latest-comments .wp-block-latest-comments__comment img {
+	display: none;
+}
+
+.comment .wp-block-latest-comments .wp-block-latest-comments__comment article .wp-block-latest-comments__comment-excerpt p {
+	color: #7f9bc9;
+	font-weight: 600;
+}
+
+.comment .wp-block-latest-comments .wp-block-latest-comments__comment {
+	margin-bottom: 0px;
+	min-height: 1.25rem;
+	padding-bottom: 1px;
+	border-bottom: 1.5px solid #e6e6e6;
+}
+
+.comment .wp-block-latest-comments {
+	line-height: 1;
+}
+.comment .wp-block-latest-comments .wp-block-latest-comments__comment article .wp-block-latest-comments__comment-excerpt{
+	margin-left: 0px !important;
+}
+.title_comment {
+	font-weight: 800;
+	border-bottom: 2px solid #cfb2b8;
+	margin: 0 0 0 15% !important;
+	padding-bottom: 10px;
+	width: fit-content;
+}
+#modal-3-content .nav-search{
+	line-height: 3.5;
+	margin-top: 28px;
+}
+.nav_avatar{
+	margin-bottom: 11px !important;
+
 }
