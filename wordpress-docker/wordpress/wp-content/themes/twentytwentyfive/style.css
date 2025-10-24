@@ -617,7 +617,11 @@ textarea#comment:not(:focus)::before {
 	text-decoration: none;
 }
 
+.post_new{
 
+	    width: fit-content;
+		margin: 20px 20% !important;
+}
 .post_new .wp-block-latest-posts__list {
 	counter-reset: post-counter;
 	display: grid;
@@ -681,11 +685,15 @@ textarea#comment:not(:focus)::before {
 .title_postnew {
 	font-weight: 800;
 	border-bottom: 2px solid #cfb2b8;
-	margin: 0 0 0 10% !important;
+	margin: 0 0 0 0 !important;
 	padding-bottom: 10px;
 	width: fit-content;
 }
 
+.comment{
+   width: fit-content;
+		margin: 20px 30% !important;
+}
 .comment .wp-block-latest-comments .wp-block-latest-comments__comment article footer {
 	display: none;
 }
@@ -715,9 +723,10 @@ textarea#comment:not(:focus)::before {
 .title_comment {
 	font-weight: 800;
 	border-bottom: 2px solid #cfb2b8;
-	margin: 0 0 0 15% !important;
+	margin: 0 0 0 40px !important;
 	padding-bottom: 10px;
 	width: fit-content;
+	
 }
 #modal-3-content .nav-search{
 	line-height: 3.5;
