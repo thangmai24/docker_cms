@@ -8,77 +8,72 @@
  * @subpackage Twenty_Twenty_Five
  * @since Twenty Twenty-Five 1.0
  */
-
-
-
-function render_custom_comment_list() {
-    // Lấy tất cả comment cha (parent = 0)
+// [custom_comment_list] - Bình luận giống hệt ảnh mẫu (bubble chat)
+function render_perfect_comment_list() {
+    $post_id = get_queried_object_id();
     $comments = get_comments([
-        'status' => 'approve',
-        'number' => 3,
-        'parent' => 0,
-        'orderby' => 'comment_date_gmt',
-        'order' => 'DESC',
-        'post_id' => get_the_ID(),
+        'status'      => 'approve',
+        'number'      => 3,
+        'parent'      => 0,
+        'orderby'     => 'comment_date_gmt',
+        'order'       => 'DESC',
+        'post_id'     => $post_id,
     ]);
 
     if (empty($comments)) {
-        return '<p>Chưa có bình luận nào.</p>';
+        return '<p style="text-align:center;color:#999;padding:20px;font-style:italic;">Chưa có bình luận nào.</p>';
     }
 
     ob_start();
-    echo '<div class="comment-box">';
+    ?>
+    <div class="perfect-comment-wrapper">
+        <?php foreach ($comments as $comment) : ?>
+            <?php render_perfect_comment($comment, 0); ?>
+        <?php endforeach; ?>
+    </div>
 
-
-    foreach ($comments as $comment) {
-        custom_render_comment_tree($comment);
-    }
-
-    echo '</div>';
+   
+    <?php
     return ob_get_clean();
 }
-add_shortcode('custom_comment_list', 'render_custom_comment_list');
+add_shortcode('custom_comment_list', 'render_perfect_comment_list');
 
 
-// Hàm đệ quy render comment cha + con
-function custom_render_comment_tree($comment, $depth = 0) {
+// Render từng comment (đệ quy)
+function render_perfect_comment($comment, $depth = 0) {
+    $max_depth = 2;
+    if ($depth > $max_depth) return;
+
+    $replies = get_comments([
+        'status'  => 'approve',
+        'parent'  => $comment->comment_ID,
+        'orderby' => 'comment_date_gmt',
+        'order'   => 'ASC',
+    ]);
+
+    $text = get_comment_text($comment);
+    $text = make_clickable($text);
+    $text = nl2br($text); // Giữ xuống dòng, không tạo <p>
     ?>
-    <div class="media comment-level-<?php echo $depth; ?>">
-        <div class="media-left">
-            <?php echo get_avatar($comment, 50); ?>
+    <div class="perfect-comment level-<?php echo $depth; ?>">
+        <div class="perfect-avatar">
+            <?php echo get_avatar($comment, 38); ?>
         </div>
+        <div class="perfect-bubble">
+            <div class="perfect-author"><?php echo esc_html(get_comment_author($comment)); ?></div>
+            <div class="perfect-text"><?php echo wp_kses_post($text); ?></div>
 
-        <div class="media-body">
-            <div class="media-heading">
-                <strong><?php echo esc_html(get_comment_author($comment)); ?></strong>
-<!--                <span class="comment-date">(--><?php //echo get_comment_date('', $comment); ?><!--)</span>-->
-            </div>
-
-            <p><?php echo esc_html(get_comment_text($comment)); ?></p>
-
-            <?php
-            // Lấy các comment con (reply)
-            $replies = get_comments([
-                'status' => 'approve',
-                'parent' => $comment->comment_ID,
-                'orderby' => 'comment_date_gmt',
-                'order' => 'ASC',
-
-            ]);
-
-            if ($replies) {
-                echo '<div class="comment-replies">';
-                foreach ($replies as $reply) {
-                    custom_render_comment_tree($reply, $depth + 1);
-                }
-                echo '</div>';
-            }
-            ?>
+            <?php if ($replies && $depth < $max_depth): ?>
+                <div class="perfect-replies">
+                    <?php foreach ($replies as $reply): ?>
+                        <?php render_perfect_comment($reply, $depth + 1); ?>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
     <?php
 }
-
 /* Shortcode: [latest_timeline count="3" title="Latest News"]
    - count: số bài (mặc định 3)
    - title: tiêu đề (mặc định "Latest News")

@@ -128,7 +128,7 @@ header {
 	background-color: #f8f8f8 !important;
 }
 
-.wp-site-blocks .wp-block-group main{
+.wp-site-blocks .wp-block-group main {
 	margin-top: 0px !important;
 }
 
@@ -327,6 +327,18 @@ footer p {
 	text-align: center;
 }
 
+footer .wp-block-social-links li a {
+	color: white!important;
+	font-size: 35px;
+}
+
+footer .wp-block-social-links li {
+	background-color: #007b5e !important;
+}
+
+footer .author{
+	margin-bottom: 0px!important;
+}
 .divider {
 	position: relative;
 	width: 100%;
@@ -549,7 +561,7 @@ textarea#comment:not(:focus)::before {
 
 .categories .has-x-large-font-size {
 	font-weight: 800;
-	padding-left: 37px;	
+	padding-left: 37px;
 }
 
 .categories .wp-block-categories-list li::marker {
@@ -564,14 +576,14 @@ textarea#comment:not(:focus)::before {
 
 .categories .wp-block-categories-list {
 	line-height: 2.5;
-    background-color: white;
-    padding-left: 42px;
-    padding-right: 103px;
-    margin-bottom: 20px;
-    border-top: 25px solid transparent;
-    border-image: repeating-linear-gradient(135deg, #f5f5f5, #f5f5f5 1px, #eaeaea 1px, #eaeaea 2px) 10;
-    margin-left: 35px!important;
-    margin-right: 35px!important;
+	background-color: white;
+	padding-left: 42px;
+	padding-right: 103px;
+	margin-bottom: 20px;
+	border-top: 25px solid transparent;
+	border-image: repeating-linear-gradient(135deg, #f5f5f5, #f5f5f5 1px, #eaeaea 1px, #eaeaea 2px) 10;
+	margin-left: 35px !important;
+	margin-right: 35px !important;
 }
 
 
@@ -607,8 +619,9 @@ textarea#comment:not(:focus)::before {
 .lastest_post li .wp-block-group .circle-yellow .wp-block-group .title-y::after {
 	border: #ffffff 1px solid !important;
 }
-.lastest_post{
 
+.lastest_post_main .lastest_post .wp-block-post .wp-block-post-title {
+	width: 223px;
 }
 
 .all_latest_post {
@@ -625,7 +638,7 @@ textarea#comment:not(:focus)::before {
 .post_new {
 
 	width: 30%;
-	
+
 }
 
 .post_new .wp-block-latest-posts__list {
@@ -698,7 +711,7 @@ textarea#comment:not(:focus)::before {
 
 .comment {
 	width: 30%;
-	
+
 }
 
 .comment .wp-block-latest-comments .wp-block-latest-comments__comment article footer {
@@ -747,10 +760,12 @@ textarea#comment:not(:focus)::before {
 	margin-bottom: 11px !important;
 
 }
-.page_11 .wp-block-query .wp-block-post-template{
+
+.page_11 .wp-block-query .wp-block-post-template {
 	display: flex;
 	flex-wrap: wrap;
 }
+
 .page_11 .wp-block-query .wp-block-post-template li {
 	margin-top: 0;
 }
@@ -775,14 +790,15 @@ textarea#comment:not(:focus)::before {
 }
 
 .page_11 .wp-block-query .wp-block-post-template li .alignwide .wp-block-post-excerpt {
-    max-width: 150px;
+	max-width: 150px;
 
 }
+
 .page_11 .has-large-font-size {
 	position: relative;
 	line-height: 2.4;
 	color: blue;
-	margin-left: 0px!important;
+	margin-left: 0px !important;
 }
 
 .page_11 p::after {
@@ -797,80 +813,120 @@ textarea#comment:not(:focus)::before {
 
 
 .comment-box {
-    margin-top: 30px;
-    font-family: "Times New Roman", serif;
+	margin-top: 30px;
+	font-family: "Times New Roman", serif;
 }
 
 .comment-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 15px;
-    border-bottom: 2px solid #aaa;
-    padding-bottom: 5px;
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 15px;
+	border-bottom: 2px solid #aaa;
+	padding-bottom: 5px;
 }
 
 .comment-box .media {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 15px;
+	display: flex;
+	align-items: flex-start;
+	margin-bottom: 15px;
 }
 
 .comment-box .media-left {
-    margin-right: 10px;
-    width: 60px;
+	margin-right: 10px;
+	width: 60px;
 }
 
 .comment-box .media-left img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
 }
 
 .comment-box .media-body {
-    flex: 1;
+	flex: 1;
 }
 
 .comment-box .media-heading {
-    background-color: #f5f5f5;
-    border: 1px solid #ddd;
-    padding: 7px 10px;
-    margin-bottom: 5px;
-    position: relative;
+	background-color: #f5f5f5;
+	border: 1px solid #ddd;
+	padding: 7px 10px;
+	margin-bottom: 5px;
+	position: relative;
 }
 
 .comment-box .media-heading:before {
-    content: "";
-    width: 12px;
-    height: 12px;
-    background-color: #f5f5f5;
-    border: 1px solid #ddd;
-    border-width: 1px 0 0 1px;
-    transform: rotate(-45deg);
-    position: absolute;
-    top: 10px;
-    left: -6px;
+	content: "";
+	width: 12px;
+	height: 12px;
+	background-color: #f5f5f5;
+	border: 1px solid #ddd;
+	border-width: 1px 0 0 1px;
+	transform: rotate(-45deg);
+	position: absolute;
+	top: 10px;
+	left: -6px;
 }
 
 .comment-box p {
-    border: 1px solid #ddd;
-    padding: 10px;
-    margin-bottom: 5px;
+	border: 1px solid #ddd;
+	padding: 10px;
+	margin-bottom: 5px;
 }
 
 .comment-replies {
-margin-left: 40px; /* đẩy comment con sang phải */
-    border-left: 2px solid #ddd;
-    padding-left: 10px;
+	margin-left: 40px;
+	/* đẩy comment con sang phải */
+	border-left: 2px solid #ddd;
+	padding-left: 10px;
 }
 
-.wp-site-blocks .wp-block-group .page_11{
-  width: 20%!important;
+.wp-site-blocks .wp-block-group .page_11 {
+	width: 20% !important;
 }
-.wp-site-blocks .wp-block-group main{
-  width: 60%!important;
+
+.wp-site-blocks .wp-block-group main {
+	width: 60% !important;
 }
-.wp-site-blocks .wp-block-group .search_comment{
-  width: 20%!important;
+
+.wp-site-blocks .wp-block-group .search_comment {
+	width: 20% !important;
 }
 
 
+.recentpost .pn_post .wp-block-group .wp-block-post-navigation-link {
+	margin-left: 69px;
+}
+
+.perfect-comment{
+	display: flex;
+	margin: 20px 12px;
+}
+.perfect-bubble{
+	margin-left: 12px;
+	line-height: 1.3;
+	border: 1px solid #eadbdb;
+}
+.perfect-author{
+	background-color: #f5f5f5;
+	padding: 5px;
+	font-size: 18px;
+	position: relative;
+}
+/* Mũi tên tam giác */
+    .perfect-author::after {
+        content: '';
+        position: absolute;
+        left: -10px;
+        top: 14px;
+        width: 0;
+        height: 0;
+        border-top: 7px solid transparent;
+        border-bottom: 7px solid transparent;
+        border-right: 10px solid #f5f5f5;
+        filter: drop-shadow(-1px 0 1px #e0d1d1);
+        
+    }
+.perfect-text{
+	font-size: 12px;
+	padding: 2px;
+}
