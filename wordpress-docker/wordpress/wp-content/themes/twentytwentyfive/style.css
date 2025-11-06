@@ -549,6 +549,7 @@ textarea#comment:not(:focus)::before {
 
 .categories .has-x-large-font-size {
 	font-weight: 800;
+	padding-left: 37px;	
 }
 
 .categories .wp-block-categories-list li::marker {
@@ -563,17 +564,14 @@ textarea#comment:not(:focus)::before {
 
 .categories .wp-block-categories-list {
 	line-height: 2.5;
-	background-color: white;
-	padding-left: 103px;
-	padding-right: 103px;
-	margin-bottom: 20px;
-	border-top: 25px solid transparent;
-	/* độ dày đường sọc */
-	border-image: repeating-linear-gradient(135deg,
-			#f5f5f5,
-			#f5f5f5 1px,
-			#eaeaea 1px,
-			#eaeaea 2px) 10;
+    background-color: white;
+    padding-left: 42px;
+    padding-right: 103px;
+    margin-bottom: 20px;
+    border-top: 25px solid transparent;
+    border-image: repeating-linear-gradient(135deg, #f5f5f5, #f5f5f5 1px, #eaeaea 1px, #eaeaea 2px) 10;
+    margin-left: 35px!important;
+    margin-right: 35px!important;
 }
 
 
@@ -609,6 +607,9 @@ textarea#comment:not(:focus)::before {
 .lastest_post li .wp-block-group .circle-yellow .wp-block-group .title-y::after {
 	border: #ffffff 1px solid !important;
 }
+.lastest_post{
+
+}
 
 .all_latest_post {
 	background-color: #62c6c8;
@@ -623,7 +624,7 @@ textarea#comment:not(:focus)::before {
 
 .post_new {
 
-	width: fit-content;
+	width: 30%;
 	
 }
 
@@ -696,7 +697,7 @@ textarea#comment:not(:focus)::before {
 }
 
 .comment {
-	width: fit-content;
+	width: 30%;
 	
 }
 
@@ -781,6 +782,7 @@ textarea#comment:not(:focus)::before {
 	position: relative;
 	line-height: 2.4;
 	color: blue;
+	margin-left: 0px!important;
 }
 
 .page_11 p::after {
@@ -856,10 +858,11 @@ textarea#comment:not(:focus)::before {
 }
 
 .comment-replies {
-    margin-left: 40px; /* đẩy comment con sang phải */
+margin-left: 40px; /* đẩy comment con sang phải */
     border-left: 2px solid #ddd;
     padding-left: 10px;
 }
+
 .wp-site-blocks .wp-block-group .page_11{
   width: 20%!important;
 }
@@ -869,3 +872,5 @@ textarea#comment:not(:focus)::before {
 .wp-site-blocks .wp-block-group .search_comment{
   width: 20%!important;
 }
+
+

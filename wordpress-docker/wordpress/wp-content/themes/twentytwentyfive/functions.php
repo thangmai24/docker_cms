@@ -10,6 +10,7 @@
  */
 
 
+
 function render_custom_comment_list() {
     // Lấy tất cả comment cha (parent = 0)
     $comments = get_comments([
