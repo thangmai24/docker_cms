@@ -9,6 +9,66 @@
  * @since Twenty Twenty-Five 1.0
  */
 
+function twenty_twenty_five_widgets_init() {
+
+	 register_sidebar(array(
+        'name'          => __('Footer Column 25 1', 'theme_text_domain'),
+        'id'            => 'footer-widget-25-1',
+        'description'   => __('Widget area for the first footer column', 'theme_text_domain'),
+        'before_widget' => '<div class="footer-widget">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h5>| Quick links</h5>',
+        'after_title'   => '',
+    ));
+ 
+}
+add_action( 'widgets_init', 'twenty_twenty_five_widgets_init' );
+
+add_shortcode('search_title', function() {
+    if (is_search()) {
+        $query = get_search_query();
+
+        // Kiểm tra nếu không có kết quả
+        if (!have_posts()) {
+            return '
+                <div class="search-result-header">
+                    <h4 class="search-heading" > <span style="color:hsl(343.48deg 76.72% 45.49%);">Search: </span>  “ ' . esc_html($query) . '”</h4>
+                </div>
+            ';
+        } else {
+            // Có kết quả
+            return '<div class="search-result-header">
+                    <h4 class="search-heading" > <span style="color:hsl(343.48deg 76.72% 45.49%);">Search: </span>  “ ' . esc_html($query) . '”</h4>
+                </div>';
+        }
+    }
+    return '';
+});
+
+add_action('wp_enqueue_scripts', function () {
+  wp_enqueue_style('dashicons');
+});
+
+
+// Đăng ký menu
+function my_theme_setup() {
+  register_nav_menus([
+    'primary' => __( 'Main Menu', 'mytheme' ),
+	 'secondary' => __('Footer Menu', 'mytheme'),
+  ]);
+}
+add_action('after_setup_theme', 'my_theme_setup');
+
+// Đăng ký widget
+function my_theme_widgets_init() {
+  register_sidebar([
+    'name' => 'Sidebar',
+    'id' => 'sidebar-1',
+    'before_widget' => '<div class="widget">',
+    'after_widget' => '</div>',
+  ]);
+}
+add_action('widgets_init', 'my_theme_widgets_init');
 // Adds theme support for post formats.
 if ( ! function_exists( 'twentytwentyfive_post_format_setup' ) ) :
 	/**
@@ -53,11 +113,16 @@ if ( ! function_exists( 'twentytwentyfive_enqueue_styles' ) ) :
 			'twentytwentyfive-style',
 			get_parent_theme_file_uri( 'style.css' ),
 			array(),
-			wp_get_theme()->get( 'Version' )
+			time()
 		);
 	}
 endif;
 add_action( 'wp_enqueue_scripts', 'twentytwentyfive_enqueue_styles' );
+
+function enqueue_font_awesome() {
+    wp_enqueue_style( 'font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css', array(), '6.5.1' );
+}
+add_action( 'wp_enqueue_scripts', 'enqueue_font_awesome' );
 
 // Registers custom block styles.
 if ( ! function_exists( 'twentytwentyfive_block_styles' ) ) :
